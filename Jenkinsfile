@@ -18,7 +18,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            docker run -d --name student1 -p 8081:80 -p 2222:22 iliyan/docker-nginx-sshd
+            sh 'docker run -d --name student1 -p 8081:80 -p 2222:22 iliyan/docker-nginx-sshd'
           }
         }
         stage('Archive Artifacts') {
