@@ -7,7 +7,7 @@ pipeline {
         sh 'npm install'
         sh 'npm run-script build'
         chuckNorris()
-        stash includes:'public', name:'sitesFiles'
+        stash includes:'public/*', name:'sitesFiles'
       }
     }
     stage('Unit Testing') {
