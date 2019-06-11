@@ -19,10 +19,8 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            sh 'set +e'
             sh 'sudo docker stop student1'
             sh 'sudo docker rm student1'
-            sh 'set -e'
             sh 'sudo docker run -d --name student1 -p 7878:80 -p 2222:22 iliyan/docker-nginx-sshd'
           }
         }
