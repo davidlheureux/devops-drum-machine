@@ -4,8 +4,8 @@ pipeline {
     stage('Compile') {
       agent any
       steps {
-        sh 'sudo npm install'
-        sh 'sudo npm run-script build'
+        sh 'npm install'
+        sh 'npm run-script build'
       }
     }
     stage('Unit Testing') {
