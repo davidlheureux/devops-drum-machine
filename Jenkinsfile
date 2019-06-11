@@ -31,8 +31,16 @@ pipeline {
     stage('Integration testing') {
       steps {
         sleep 10
-        sh 'sudo curl localhost'
+        sh 'sudo curl localhost:7878'
       }
     }
+    
+    stage('Free Infra') {
+      steps {
+        sh 'sudo docker stop student1'
+        sh 'sudo docker rm student1'
+      }
+    }
+    
   }
 }
