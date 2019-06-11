@@ -11,7 +11,7 @@ pipeline {
     stage('Unit Testing') {
       agent any
       steps {
-        sh 'sudo npm run-script test'
+        sh 'npm run-script test'
       }
     }
     stage('Deploy') {
