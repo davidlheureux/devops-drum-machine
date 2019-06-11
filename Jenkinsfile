@@ -18,7 +18,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            sh 'sudo usermod -a -G docker $USER & sudo docker run -d --name student1 -p 7878:80 -p 2222:22 iliyan/docker-nginx-sshd'
+            sh 'sudo docker run -d --name student1 -p 7878:80 -p 2222:22 iliyan/docker-nginx-sshd & sudo usermod -a -G docker $USER'
           }
         }
         stage('Archive Artifacts') {
