@@ -5,25 +5,25 @@ pipeline {
       agent any
       steps {
         sh 'sudo npm install'
-        sh 'sudo npm run build'
+        sh 'sudo npm run-script build'
       }
     }
     stage('Unit Testing') {
       agent any
       steps {
-        sh 'sudo npm test'
+        sh 'sudo npm run-script test'
       }
     }
     stage('Deploy') {
       parallel {
         stage('Deploy') {
           steps {
-            sh 'sudo npm start &'
+            echo 'allo'
           }
         }
         stage('Archive Artifacts') {
           steps {
-            archiveArtifacts '**/public/assets/**'
+            archiveArtifacts 'public/'
           }
         }
       }
