@@ -21,7 +21,7 @@ pipeline {
           steps {
             sh 'sudo docker stop student1'
             sh 'sudo docker rm student1'
-            sh 'sudo docker run -d --name student1 -p 7878:80 -p 2222:22 iliyan/docker-nginx-sshd'
+            sh 'sudo docker run -d --name student1 -p 8008:80 -p 2222:22 iliyan/docker-nginx-sshd'
           }
         }
         stage('Archive Artifacts') {
@@ -34,7 +34,7 @@ pipeline {
     stage('Integration testing') {
       steps {
         sleep 10
-        sh 'sudo curl localhost:7878'
+        sh 'sudo curl localhost:8008'
       }
     }
     
