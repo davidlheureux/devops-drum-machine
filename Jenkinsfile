@@ -28,7 +28,7 @@ pipeline {
             //sh label:"copy rep2",script:'sudo docker cp "public/app" "student1:sites/app"'
             //sh label:"copy rep3",script:'sudo docker cp "public/assets" "student1:sites/assets"'
             unstash 'sitesFiles'
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'student1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'sites', remoteDirectorySDF: false, removePrefix: 'public', sourceFiles: 'public')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])            
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'student1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'public/**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])            
           }
         }
         stage('Archive Artifacts') {
