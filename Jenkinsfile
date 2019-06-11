@@ -40,7 +40,7 @@ pipeline {
     }
     stage('Integration testing') {
       steps {
-        sleep 12
+        sleep 10
         sh 'sudo curl localhost:8008'
       }
     }
